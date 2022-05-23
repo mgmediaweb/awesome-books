@@ -22,6 +22,8 @@ const showBooks = () => {
       const newCellAuthor = newRow.insertCell(1);
       const newCellButton = newRow.insertCell(2);
 
+      newCellButton.setAttribute('width', 50);
+
       const newBook = document.createTextNode(item.title);
       const newAuthor = document.createTextNode(item.author);
 

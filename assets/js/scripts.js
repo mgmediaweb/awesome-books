@@ -4,8 +4,16 @@ const setBooks = (books) => {
   localStorage.setItem('books', JSON.stringify(books));
 };
 
-const showBooks = (books) => {
+const getBooks = () => {
+  const books = JSON.parse(localStorage.getItem('books'));
+  if (books) return books;
+  return [];
+};
+
+const showBooks = () => {
+  const books = getBooks();
   const tableBook = document.getElementById('bookList');
+  tableBook.innerHTML = "";
 
   books.forEach((item, key) => {
     const newRow = tableBook.insertRow(key);
@@ -24,29 +32,16 @@ const showBooks = (books) => {
   return true;
 };
 
-const getBooks = (opc) => {
-  const books = JSON.parse(localStorage.getItem('books'));
-
-  if (books) {
-    if (opc === 'get') {
-      return books;
-    }
-    showBooks(books);
-  }
-
-  return [];
-};
-
 const delBooks = (id = null) => {
   if (id != null) {
-    const books = getBooks('get');
+    const books = getBooks();
 
     const newBooks = books.filter((item, key) => {
       /* add code here */
     });
 
     setBooks(newBooks);
-    showBooks(newBooks);
+    showBooks();
   }
 };
 
@@ -57,12 +52,11 @@ const addBooks = (title = null, author = null) => {
       author,
     };
 
-    const bookMem = getBooks('get');
+    const bookMem = getBooks();
     bookMem.push(bookInfo);
     setBooks(bookMem);
+    showBooks();
   }
-
-  getBooks('show');
 };
 
 form.addEventListener('submit', (event) => {
@@ -79,4 +73,4 @@ form.addEventListener('submit', (event) => {
 });
 
 delBooks();
-getBooks('show');
+showBooks();

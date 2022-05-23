@@ -49,7 +49,7 @@ const delBooks = (id = null) => {
     const books = getBooks();
 
     const newBooks = books.filter((item, key) => {
-      if (key !== id) //return true;
+      if (key !== id) return true;
       return null;
     });
 

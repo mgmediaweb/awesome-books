@@ -37,7 +37,7 @@ const delBooks = (id = null) => {
     const books = getBooks();
 
     const newBooks = books.filter((item, key) => {
-      /* add code here */
+      //if(key != id) return true;
     });
 
     setBooks(newBooks);

@@ -2,6 +2,20 @@ const form = document.getElementById('addBookForm');
 const alert = document.querySelector('.alert');
 const section = document.querySelectorAll('section');
 
+const goto = (page) => {
+  section.forEach((elem) => {
+    const idnum = elem.getAttribute('id');
+
+    if (idnum !== page) {
+      document.getElementById(idnum).style.display = 'none';
+      document.getElementById(`nav-${idnum}`).removeAttribute('class');
+    }
+  });
+
+  document.getElementById(page).style.display = 'block';
+  document.getElementById(`nav-${page}`).setAttribute('class', 'active');
+};
+
 class BooksClass {
   constructor() {
     return null;
@@ -65,6 +79,10 @@ class BooksClass {
         newCellAuthor.appendChild(newAuthor);
         newCellButton.innerHTML = `<button type="button" onClick="delBooks(${key})">Remove</button>`;
       });
+
+      let message = `${books.length} books availables`;
+      if (books.length === 1) message = '1 book available';
+      document.getElementById('cantBooks').innerHTML = message;
     } else {
       const newRow = tableBook.insertRow(0);
       const newCell = newRow.insertCell(0);
@@ -73,6 +91,7 @@ class BooksClass {
       newCell.setAttribute('colspan', 3);
       newCell.setAttribute('class', 'text-center');
       newCell.appendChild(text);
+      document.getElementById('cantBooks').innerHTML = '';
     }
 
     return true;
@@ -88,20 +107,6 @@ const hideAlert = () => {
 const delBooks = (id = null) => {
   if (id != null) books.del(id);
 };
-
-const goto = (page) => {
-  section.forEach(elem => {
-    let idnum = elem.getAttribute('id');
-
-    if(idnum !== page) {
-      document.getElementById(idnum).style.display = 'none';
-      document.getElementById(`nav-${idnum}`).removeAttribute('class');
-    }
-  });
-
-  document.getElementById(page).style.display = 'block';
-  document.getElementById(`nav-${page}`).setAttribute('class','active');
-}
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();

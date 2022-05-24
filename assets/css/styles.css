@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+a {
+  color: rebeccapurple;
+  text-decoration: none;
+}
+
 body {
   background-color: azure;
   text-align: center;
@@ -20,6 +25,17 @@ button {
 button:hover {
   background-color: #4d1c7e;
   cursor: pointer;
+}
+
+footer {
+  background-color: rgb(102, 51, 153, 0.15);
+  bottom: 0;
+  color: rebeccapurple;
+  left: 0;
+  padding: 32px 16px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
 h1 {
@@ -39,9 +55,14 @@ header {
   height: 80px;
   left: 0;
   position: fixed;
-  top:0;
+  top: 0;
   width: 100%;
   z-index: 1000;
+}
+
+header img {
+  height: 60px;
+  width: auto;
 }
 
 html {
@@ -57,8 +78,16 @@ input {
   width: 100%;
 }
 
+ul {
+  list-style-type: disc;
+}
+
 nav ul {
   list-style-type: none;
+}
+
+ul li {
+  margin-bottom: 0.8em;
 }
 
 nav ul li {
@@ -74,11 +103,20 @@ nav a {
   padding: 10px 20px;
 }
 
-nav a:hover {
-  background-color: rgb(102, 51, 153,0.15);
+a:hover {
+  text-decoration: underline;
 }
 
-.active, .active:hover {
+nav a:hover {
+  background-color: rgb(102, 51, 153, 0.15);
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+.active,
+.active:hover {
   background-color: rebeccapurple;
   color: white;
   cursor: default;
@@ -86,8 +124,7 @@ nav a:hover {
 
 section {
   display: none;
-  padding-top: 150px;  
-  /*min-height: 100vh;*/
+  padding-top: 150px;
   width: 100%;
 }
 
@@ -129,19 +166,29 @@ table th {
   padding: 8px;
 }
 
+.bullet-win {
+  margin: 30px auto 0 auto;
+  max-width: 440px;
+  text-align: left;
+  width: 80%;
+}
+
 .cellBtn {
   width: 110px;
+}
+
+.container {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 0 10px;
+  width: 100%;
 }
 
 .container-flex {
   align-items: center;
   display: flex;
-  height: 100%;
-  justify-content: space-between;  
-  margin: 0 auto;
-  max-width: 1080px;
-  padding: 0 10px;
-  width: 100%;
+  justify-content: space-between;
 }
 
 .formBox {
@@ -155,6 +202,11 @@ table th {
 
 .text-center {
   text-align: center;
+}
+
+#cantBooks {
+  font-size: 0.9rem;
+  margin-top: 20px;
 }
 
 /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */

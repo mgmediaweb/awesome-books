@@ -28,7 +28,7 @@ class BooksClass {
       return null;
     });
 
-    //this.set(newBooks);
+    this.setX(newBooks);
     this.show();
   }
 

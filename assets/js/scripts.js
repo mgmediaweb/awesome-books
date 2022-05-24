@@ -3,7 +3,7 @@ const alert = document.querySelector('.alert');
 
 const hideAlert = () => {
   alert.style.display = 'none';
-}
+};
 
 const setBooks = (books) => {
   localStorage.setItem('books', JSON.stringify(books));
@@ -27,7 +27,7 @@ const showBooks = () => {
       const newCellAuthor = newRow.insertCell(1);
       const newCellButton = newRow.insertCell(2);
 
-      newCellButton.setAttribute('class','cellBtn text-center');
+      newCellButton.setAttribute('class', 'cellBtn text-center');
 
       const newBook = document.createTextNode(item.title);
       const newAuthor = document.createTextNode(item.author);
@@ -94,3 +94,4 @@ form.addEventListener('submit', (event) => {
 
 delBooks();
 showBooks();
+hideAlert();

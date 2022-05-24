@@ -1,5 +1,6 @@
 const form = document.getElementById('addBookForm');
 const alert = document.querySelector('.alert');
+const section = document.querySelectorAll('section');
 
 class BooksClass {
   constructor() {
@@ -17,6 +18,7 @@ class BooksClass {
       bookMem.push(bookInfo);
       this.constructor.set(bookMem);
       this.show();
+      goto('booklist');
     }
   }
 
@@ -29,7 +31,7 @@ class BooksClass {
     });
 
     this.constructor.set(newBooks);
-    //this.show();
+    this.show();
   }
 
   static get() {
@@ -87,6 +89,20 @@ const delBooks = (id = null) => {
   if (id != null) books.del(id);
 };
 
+const goto = (page) => {
+  section.forEach(elem => {
+    let idnum = elem.getAttribute('id');
+
+    if(idnum !== page) {
+      document.getElementById(idnum).style.display = 'none';
+      document.getElementById(`nav-${idnum}`).removeAttribute('class');
+    }
+  });
+
+  document.getElementById(page).style.display = 'block';
+  document.getElementById(`nav-${page}`).setAttribute('class','active');
+}
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -105,3 +121,4 @@ form.addEventListener('submit', (event) => {
 books.show();
 hideAlert();
 delBooks();
+goto('booklist');

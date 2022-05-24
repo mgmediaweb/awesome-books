@@ -29,7 +29,7 @@ class BooksClass {
     });
 
     this.constructor.set(newBooks);
-    //this.show();
+    this.show();
   }
 
   static get() {

@@ -1,4 +1,9 @@
 const form = document.getElementById('addBookForm');
+const alert = document.querySelector('.alert');
+
+const hideAlert = () => {
+  alert.style.display = 'none';
+}
 
 const setBooks = (books) => {
   localStorage.setItem('books', JSON.stringify(books));
@@ -12,7 +17,7 @@ const getBooks = () => {
 
 const showBooks = () => {
   const books = getBooks();
-  const tableBook = document.getElementById('bookList');
+  const tableBook = document.getElementById('bookList').getElementsByTagName('tbody')[0];
   tableBook.innerHTML = '';
 
   if (books && books.length) {
@@ -22,7 +27,7 @@ const showBooks = () => {
       const newCellAuthor = newRow.insertCell(1);
       const newCellButton = newRow.insertCell(2);
 
-      newCellButton.setAttribute('width', 50);
+      newCellButton.setAttribute('class','cellBtn text-center');
 
       const newBook = document.createTextNode(item.title);
       const newAuthor = document.createTextNode(item.author);
@@ -37,7 +42,7 @@ const showBooks = () => {
     const text = document.createTextNode('No books availables');
 
     newCell.setAttribute('colspan', 3);
-    newCell.setAttribute('align', 'center');
+    newCell.setAttribute('class', 'text-center');
     newCell.appendChild(text);
   }
 
@@ -82,6 +87,8 @@ form.addEventListener('submit', (event) => {
     addBooks(bookTitle.value, bookAuthor.value);
     bookTitle.value = '';
     bookAuthor.value = '';
+  } else {
+    alert.style.display = 'block';
   }
 });
 

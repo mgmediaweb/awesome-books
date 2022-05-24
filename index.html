@@ -12,16 +12,25 @@
     <h1>All Awesome Books</h1>
 
     <table id="bookList">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th class="cellBtn">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
     </table>
 
     <br/>
 
-    <div>
+    <div class="formBox">
         <h2>Add a new book</h2>
         <form id="addBookForm" action="#">
-            <input id="book-title" type="text" placeholder="Title" />
-            <input id="book-author" type="text" placeholder="Author" />
+            <input id="book-title" type="text" placeholder="Title" onkeyup="hideAlert()" />
+            <input id="book-author" type="text" placeholder="Author" onkeyup="hideAlert()" />
             <button type="submit">Add</button>
+            <div class="alert">You need to fill both fields</div>
         </form>
     </div>
 </body>

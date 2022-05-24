@@ -11,7 +11,7 @@
 - CSS3
 - JAVASCRIPT ES6
 
-## Live Demo (if available)
+## Live Demo
 
 [Live Demo Link](https://mgmediaweb.github.io/awesome-books)
 

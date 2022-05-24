@@ -13,22 +13,22 @@ class BooksClass {
         author,
       };
 
-      const bookMem = this.get();
+      const bookMem = this.constructor.get();
       bookMem.push(bookInfo);
-      this.set(bookMem);
+      this.constructor.set(bookMem);
       this.show();
     }
   }
 
   del(id) {
-    const books = this.get();
+    const books = this.constructor.get();
 
     const newBooks = books.filter((item, key) => {
       if (key !== id) return true;
       return null;
     });
 
-    this.setX(newBooks);
+    this.constructor.set(newBooks);
     this.show();
   }
 
@@ -43,7 +43,7 @@ class BooksClass {
   }
 
   show() {
-    const books = this.get();
+    const books = this.constructor.get();
     const tableBook = document.getElementById('bookList').getElementsByTagName('tbody')[0];
     tableBook.innerHTML = '';
 
